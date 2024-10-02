@@ -2,6 +2,37 @@ body {
     background-color: aquamarine;
 }
 
-.hidden {
-    visibility: hidden;
+button {
+    background-color: transparent;
+    border-radius: 10%;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(199, 199, 199, 0.671);
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 10%;
+}
+
+.dropdownContent a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+/* has to be after .dropdownContent since it overrides display:none */
+.show {
+    display: block;
 }

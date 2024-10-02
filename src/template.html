@@ -6,14 +6,17 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <button aria-label="open-dropdown">
-        <img src="" alt="dropdown button image" id="dropdownImage">
-    </button>
-
-    <select name="dropdown" id="dropdown" class="hidden">
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-    </select>
+    <div class="dropdown">
+        <button aria-label="open-dropdown" class="dropdownButton">
+            <img src="" alt="dropdown button image" class="dropdownImage">
+        </button>
+    
+        <!--custom dropdown to style visually-->
+        <div name="dropdown" class="dropdownContent">
+            <a id="one">One</a>
+            <a id="two">Two</a>
+            <a id="three">Three</a>
+        </div>
+    </div>
 </body>
 </html>
