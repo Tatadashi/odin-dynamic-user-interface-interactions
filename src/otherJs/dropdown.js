@@ -1,9 +1,12 @@
 import dropdownIcon from '../images/dropdownButton.svg';
 
 function addImageToDropdowns () {
-    const dropdownImages = document.querySelectorAll('.dropdownImage');
-    dropdownImages.forEach(image => {
-        image.src = dropdownIcon;
+    const dropdowButtons = document.querySelectorAll('.dropdownButton');
+    dropdowButtons.forEach(button => {
+        button.style.backgroundImage = `url(${dropdownIcon})`;
+        button.style.backgroundSize = '15%';
+        button.style.backgroundRepeat = 'no-repeat';
+        button.style.backgroundPosition = 'center center';
     });
 }
 
