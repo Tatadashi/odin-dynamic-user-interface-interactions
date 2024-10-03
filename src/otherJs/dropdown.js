@@ -1,8 +1,8 @@
 import dropdownIcon from '../images/dropdownButton.svg';
 
 function addImageToDropdowns () {
-    const dropdowButtons = document.querySelectorAll('.dropdownButton');
-    dropdowButtons.forEach(button => {
+    const dropdownButtons = document.querySelectorAll('.dropdownButton');
+    dropdownButtons.forEach(button => {
         button.style.backgroundImage = `url(${dropdownIcon})`;
         button.style.backgroundSize = '15%';
         button.style.backgroundRepeat = 'no-repeat';
@@ -20,16 +20,20 @@ function addClickEventToDropdownButtons () {
     const dropdownButtons = document.querySelectorAll('.dropdownButton');
     dropdownButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            closeAllDropdowns();
+            const dropdown = button.parentElement;
+            const dropdownContent = dropdown.querySelector('.dropdownContent');
+            closeAllDropdowns(dropdownContent);
             toggleDropdown(button);
         });
     });
 }
 
-function closeAllDropdowns () {
+function closeAllDropdowns (except='none') {
     const allDropdownContent = document.querySelectorAll('.dropdownContent');
     allDropdownContent.forEach(dropdown => {
-        dropdown.classList.remove('show');
+        if (except !== dropdown) {
+            dropdown.classList.remove('show');
+        }
     });
 }
 
