@@ -12,7 +12,7 @@ body {
     position: relative;
 }
 
-.dropdownButton {
+.dropdown-button {
     background-color: transparent;
     border-radius: 50%;
     border: none;
@@ -21,25 +21,25 @@ body {
     height: 30px;
 }
 
-.dropdownButton:hover {
+.dropdown-button:hover {
     background-color: rgba(199, 199, 199, 0.671);
 }
 
-.dropdownContent {
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
     border-radius: 10%;
 }
 
-.dropdownContent a {
+.dropdown-content a {
     display: block;
     color: black;
     text-decoration: none;
     padding: 5px 10px;
 }
 
-.dropdownContent a:hover {
+.dropdown-content a:hover {
     background-color: rgba(199, 199, 199, 0.671);
 }
 

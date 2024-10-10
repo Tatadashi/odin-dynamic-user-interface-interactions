@@ -1,7 +1,7 @@
-import dropdownIcon from '../images/dropdownButton.svg';
+import dropdownIcon from '../assets/dropdown_menu/dropdown_button.svg';
 
 function addImageToDropdowns () {
-    const dropdownButtons = document.querySelectorAll('.dropdownButton');
+    const dropdownButtons = document.querySelectorAll('.dropdown-button');
     dropdownButtons.forEach(button => {
         button.style.backgroundImage = `url(${dropdownIcon})`;
         button.style.backgroundSize = '15%';
@@ -12,16 +12,16 @@ function addImageToDropdowns () {
 
 function toggleDropdown (button) {
     const dropdown = button.parentElement;
-    const dropdownContent = dropdown.querySelector('.dropdownContent');
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
     dropdownContent.classList.toggle('show');
 }
 
 function addClickEventToDropdownButtons () {
-    const dropdownButtons = document.querySelectorAll('.dropdownButton');
+    const dropdownButtons = document.querySelectorAll('.dropdown-button');
     dropdownButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             const dropdown = button.parentElement;
-            const dropdownContent = dropdown.querySelector('.dropdownContent');
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
             closeAllDropdowns(dropdownContent);
             toggleDropdown(button);
         });
@@ -29,7 +29,7 @@ function addClickEventToDropdownButtons () {
 }
 
 function closeAllDropdowns (except='none') {
-    const allDropdownContent = document.querySelectorAll('.dropdownContent');
+    const allDropdownContent = document.querySelectorAll('.dropdown-content');
     allDropdownContent.forEach(dropdown => {
         if (except !== dropdown) {
             dropdown.classList.remove('show');
@@ -40,7 +40,7 @@ function closeAllDropdowns (except='none') {
 //close all dropdowns when not clicking a dropdownButton
 function addCloseInactiveDropdowns () {
     window.addEventListener('click', (e) => {
-        if (!e.target.matches('.dropdownButton')) {
+        if (!e.target.matches('.dropdown-button')) {
             closeAllDropdowns();
         }
     });
