@@ -48,6 +48,12 @@ body {
     display: block;
 }
 
+#carousel-container {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
 #carousel {
     border: 5px solid purple;
     position: relative;
@@ -70,4 +76,23 @@ body {
     width: 210px;
     display: flex;
     justify-content: space-between;
+}
+
+#slide-dots {
+    display: flex;
+    width: 210px;
+    justify-content: center;
+    gap: 10px;
+}
+
+.slide-dot {
+    height: 20px;
+    width: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.slide-dot.current {
+    background-color: black;
 }

@@ -34,14 +34,47 @@ function changeCurrentSlideForward () {
     const nextSlide = currentSlide.nextElementSibling;
     slides.prepend(nextSlide);
     slides.appendChild(currentSlide);
+
+    changeCurrentSlideDotForward();
     resetSlideTimer();
+}
+
+function changeCurrentSlideDotForward () {
+    const currentSlideDot = document.querySelector('.current');
+    const nextSlideDot = currentSlideDot.nextElementSibling;
+    currentSlideDot.classList.remove('current');
+
+    //current slide being last slide means next slide is null
+    if (nextSlideDot == null) {
+        const firstSlideDot = document.querySelector('.slide-dot');
+        firstSlideDot.classList.add('current');
+    } else {
+        nextSlideDot.classList.add('current');
+    }
 }
 
 function changeCurrentSlideBack () {
     const slides = document.getElementById('slides');
     const lastSlide = slides.lastElementChild;
     slides.prepend(lastSlide);
+
+    changeCurrentSlideDotBack();
     resetSlideTimer();
+}
+
+function changeCurrentSlideDotBack () {
+    const currentSlideDot = document.querySelector('.current');
+    const previousSlideDot = currentSlideDot.previousElementSibling;
+    currentSlideDot.classList.remove('current');
+
+    //current slide being slide 1 means previous slide is null
+    if (previousSlideDot == null) {
+        const slideDots = document.getElementById('slide-dots');
+        const lastSlideDot = slideDots.lastElementChild;
+        lastSlideDot.classList.add('current');
+    } else {
+        previousSlideDot.classList.add('current');
+    }
 }
 
 function addForwardSlideButtonEvent () {
@@ -50,6 +83,8 @@ function addForwardSlideButtonEvent () {
         changeCurrentSlideForward();
     });
 }
+
+
 
 function addBackSlideButtonEvent () {
     const button = document.getElementById('carousel-back-button');
