@@ -65,3 +65,9 @@ body {
     flex-grow: 0;
     position: absolute;
 }
+
+#carousel-buttons {
+    width: 210px;
+    display: flex;
+    justify-content: space-between;
+}
