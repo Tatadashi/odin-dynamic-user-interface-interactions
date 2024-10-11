@@ -47,3 +47,21 @@ body {
 .show {
     display: block;
 }
+
+#carousel {
+    border: 5px solid purple;
+    position: relative;
+    overflow: hidden;
+}
+
+#carousel,
+.slide img{
+    width: 200px;
+    aspect-ratio: 16 / 9;
+}
+
+#slides {
+    display: flex;
+    flex-grow: 0;
+    position: absolute;
+}
