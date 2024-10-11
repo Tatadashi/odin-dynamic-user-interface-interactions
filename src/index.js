@@ -10,6 +10,16 @@ addCarouselSlideImage('carousel-slide-1', carouselImage1);
 addCarouselSlideImage('carousel-slide-2', carouselImage2);
 addCarouselSlideImage('carousel-slide-3', carouselImage3);
 
+addForwardSlideButtonEvent();
+addBackSlideButtonEvent();
+
+let slideTimer = window.setInterval(changeCurrentSlideForward, 5000);
+
+function resetSlideTimer () {
+    clearInterval(slideTimer);
+    slideTimer = setInterval(changeCurrentSlideForward, 5000);
+}
+
 function addCarouselSlideImage (elementID, src) {
     const element = document.getElementById(`${elementID}`);
     const image = new Image();
@@ -24,10 +34,26 @@ function changeCurrentSlideForward () {
     const nextSlide = currentSlide.nextElementSibling;
     slides.prepend(nextSlide);
     slides.appendChild(currentSlide);
+    resetSlideTimer();
 }
 
 function changeCurrentSlideBack () {
     const slides = document.getElementById('slides');
     const lastSlide = slides.lastElementChild;
     slides.prepend(lastSlide);
+    resetSlideTimer();
+}
+
+function addForwardSlideButtonEvent () {
+    const button = document.getElementById('carousel-forward-button');
+    button.addEventListener('click', (e) => {
+        changeCurrentSlideForward();
+    });
+}
+
+function addBackSlideButtonEvent () {
+    const button = document.getElementById('carousel-back-button');
+    button.addEventListener('click', (e) => {
+        changeCurrentSlideBack();
+    });
 }
