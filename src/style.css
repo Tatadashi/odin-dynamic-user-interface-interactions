@@ -30,6 +30,7 @@ body {
     position: absolute;
     background-color: white;
     border-radius: 10%;
+    z-index: 1;
 }
 
 .dropdown-content a {
@@ -72,12 +73,6 @@ body {
     position: absolute;
 }
 
-#carousel-buttons {
-    width: 210px;
-    display: flex;
-    justify-content: space-between;
-}
-
 #slide-dots {
     display: flex;
     width: 210px;
@@ -95,4 +90,16 @@ body {
 
 .slide-dot.current {
     background-color: black;
+}
+
+#carousel-buttons {
+    width: 210px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#carousel-back-button,
+#carousel-forward-button {
+    width: 50px;
+    height: 20px;
 }

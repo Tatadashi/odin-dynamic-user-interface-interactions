@@ -3,12 +3,16 @@ import { addDropdownFunctionalities } from './otherJs/dropdown';
 import carouselImage1 from './assets/image_carousel/carousel_image_1.jpg';
 import carouselImage2 from './assets/image_carousel/carousel_image_2.jpg';
 import carouselImage3 from './assets/image_carousel/carousel_image_3.jpg';
+import leftArrowImage from './assets/image_carousel/left_arrow.svg';
+import rightArrowImage from './assets/image_carousel/right_arrow.svg';
 
 addDropdownFunctionalities();
 
 addCarouselSlideImage('carousel-slide-1', carouselImage1);
 addCarouselSlideImage('carousel-slide-2', carouselImage2);
 addCarouselSlideImage('carousel-slide-3', carouselImage3);
+addLeftArrowImage();
+addRightArrowImage();
 
 addForwardSlideButtonEvent();
 addBackSlideButtonEvent();
@@ -26,6 +30,20 @@ function addCarouselSlideImage (elementID, src) {
     image.src = src;
     image.alt = elementID;
     element.appendChild(image);
+}
+
+function addLeftArrowImage () {
+    const leftButton = document.getElementById('carousel-back-button');
+    leftButton.style.backgroundImage = `url(${leftArrowImage})`;
+    leftButton.style.backgroundRepeat = 'no-repeat';
+    leftButton.style.backgroundPosition = 'center center';
+}
+
+function addRightArrowImage () {
+    const leftButton = document.getElementById('carousel-forward-button');
+    leftButton.style.backgroundImage = `url(${rightArrowImage})`;
+    leftButton.style.backgroundRepeat = 'no-repeat';
+    leftButton.style.backgroundPosition = 'center center';
 }
 
 function changeCurrentSlideForward () {

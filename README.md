@@ -6,6 +6,8 @@ Attribution:
 UXWing: https://uxwing.com/
 License: https://uxwing.com/license/
 - dropdown button: https://uxwing.com/ellipsis-v-icon/
+- left arrow: https://uxwing.com/long-arrow-left-icon/
+- right arrow: https://uxwing.com/long-arrow-right-icon/
 
 Pexels: https://www.pexels.com/about/
 License: https://www.pexels.com/license/
