@@ -16,6 +16,7 @@ addRightArrowImage();
 
 addForwardSlideButtonEvent();
 addBackSlideButtonEvent();
+addClickEventToAllSlideDot();
 
 let slideTimer = window.setInterval(changeCurrentSlideForward, 5000);
 
@@ -102,11 +103,42 @@ function addForwardSlideButtonEvent () {
     });
 }
 
-
-
 function addBackSlideButtonEvent () {
     const button = document.getElementById('carousel-back-button');
     button.addEventListener('click', (e) => {
         changeCurrentSlideBack();
     });
+}
+
+function addClickEventToAllSlideDot () {
+    const slides = document.querySelectorAll('.slide');
+    const slideDots = document.querySelectorAll('.slide-dot');
+
+    slides.forEach((slide, index) => {
+        addClickEventToSlideDot(slideDots[index], slide);
+    });
+}
+
+function addClickEventToSlideDot (dot, slide) {
+    dot.addEventListener('click', (e) => {
+        changeCurrentSlideSpecific(slide);
+    });
+}
+
+function changeCurrentSlideSpecific (slide) {
+    const currentSlideDot = document.querySelector('.current');
+    let currentSlideNumber = Number(currentSlideDot.dataset.slide);
+
+    const newSlideID = slide.getAttribute('id');
+    const newSlideNumber = Number(newSlideID.replace('carousel-slide-', ''));
+
+    while (currentSlideNumber != newSlideNumber) {
+        if (newSlideNumber > currentSlideNumber) {
+            changeCurrentSlideForward();
+            currentSlideNumber = currentSlideNumber + 1;
+        } else {
+            changeCurrentSlideBack();
+            currentSlideNumber = currentSlideNumber - 1;
+        }
+    }
 }

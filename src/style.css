@@ -86,6 +86,7 @@ body {
     background-color: gray;
     border-radius: 50%;
     display: inline-block;
+    cursor: pointer;
 }
 
 .slide-dot.current {
@@ -102,4 +103,5 @@ body {
 #carousel-forward-button {
     width: 50px;
     height: 20px;
+    cursor: pointer;
 }
